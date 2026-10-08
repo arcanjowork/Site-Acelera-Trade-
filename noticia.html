@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notícia | Acelera Trade</title>
+  <meta name="description" content="Notícias e conteúdos da Acelera Trade.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="noticias">
+  <div id="site-header"></div>
+
+  <main class="container" id="post"></main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/noticias-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const id = new URLSearchParams(location.search).get("id");
+      const post = NOTICIAS.find(n => n.id === id);
+      const el = document.getElementById("post");
+
+      if (!post) {
+        el.innerHTML = `<section class="article-hero"><h1>Notícia não encontrada</h1>
+          <p class="lead">O conteúdo que você procura pode ter sido removido ou o link está incorreto.</p>
+          <a href="noticias.html" class="btn btn--primary">Voltar para Notícias</a></section>`;
+        return;
+      }
+
+      document.title = `${post.titulo} | Acelera Trade`;
+      document.querySelector('meta[name="description"]').setAttribute("content", post.resumo);
+
+      // Conteúdo: "## " vira subtítulo, "- " vira item de lista, "> " vira citação.
+      let body = "", list = [];
+      const flush = () => { if (list.length) { body += `<ul>${list.join("")}</ul>`; list = []; } };
+      post.conteudo.forEach(p => {
+        if (p.startsWith("- ")) { list.push(`<li>${escapeHtml(p.slice(2))}</li>`); return; }
+        flush();
+        if (p.startsWith("## ")) body += `<h2>${escapeHtml(p.slice(3))}</h2>`;
+        else if (p.startsWith("> ")) body += `<blockquote>${escapeHtml(p.slice(2))}</blockquote>`;
+        else body += `<p>${escapeHtml(p)}</p>`;
+      });
+      flush();
+
+      const url = encodeURIComponent(location.href);
+      const text = encodeURIComponent(post.titulo);
+      const related = sortedNews().filter(n => n.id !== post.id)
+        .sort((a, b) => (b.categoria === post.categoria) - (a.categoria === post.categoria))
+        .slice(0, 3);
+
+      el.innerHTML = `
+        <section class="article-hero">
+          <div class="breadcrumb"><a href="index.html">Início</a> / <a href="noticias.html">Notícias</a> / <a href="noticias.html?categoria=${encodeURIComponent(post.categoria)}">${escapeHtml(post.categoria)}</a></div>
+          <span class="eyebrow">${escapeHtml(post.categoria)}</span>
+          <h1>${escapeHtml(post.titulo)}</h1>
+          <p class="lead">${escapeHtml(post.resumo)}</p>
+          <div class="meta">
+            <span class="author"><span class="avatar">${initials(post.autor)}</span>${escapeHtml(post.autor)}</span>
+            <span class="dot"></span><span>${formatDate(post.data)}</span>
+            <span class="dot"></span><span>${post.leitura} min de leitura</span>
+          </div>
+        </section>
+        <div class="article-cover"><div class="thumb">${coverSvg(post)}</div></div>
+        <article class="article">
+          ${body}
+          <div class="share">Compartilhar:
+            <a href="https://wa.me/?text=${text}%20${url}" target="_blank" rel="noopener" aria-label="WhatsApp">${ICONS.whatsapp}</a>
+            <a href="https://twitter.com/intent/tweet?text=${text}&url=${url}" target="_blank" rel="noopener" aria-label="X">${ICONS.x}</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener" aria-label="LinkedIn">${ICONS.linkedin}</a>
+            <a href="#" id="copy" aria-label="Copiar link">${ICONS.link}</a>
+          </div>
+        </article>
+        <section class="related">
+          <h2>Leia também</h2>
+          <div class="grid">${related.map(cardHtml).join("")}</div>
+        </section>`;
+
+      document.getElementById("copy").addEventListener("click", e => {
+        e.preventDefault();
+        navigator.clipboard?.writeText(location.href);
+        e.currentTarget.style.color = "var(--accent)";
+      });
+    });
+  </script>
+</body>
+</html>

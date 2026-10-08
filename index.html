@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acelera Trade | Mesa proprietária para traders</title>
+  <meta name="description" content="Acelera Trade: passe na avaliação, comprove sua consistência e opere com o nosso capital, ficando com até 90% do lucro.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="home">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero home-hero">
+      <div class="container">
+        <span class="eyebrow">● Mesa proprietária</span>
+        <h1>Acelere sua carreira de trader com <em>o nosso capital</em></h1>
+        <p>Mostre sua consistência na avaliação, receba uma conta financiada e fique com até 90% dos lucros. Sem arriscar o seu patrimônio.</p>
+        <div class="hero-actions">
+          <a href="#planos" class="btn btn--primary">Começar avaliação</a>
+          <a href="#como-funciona" class="btn btn--ghost">Como funciona</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><strong>+3.000</strong><span>traders avaliados</span></div>
+          <div class="stat"><strong>até 90%</strong><span>de divisão de lucros</span></div>
+          <div class="stat"><strong>R$ 200 mil</strong><span>em conta financiada</span></div>
+          <div class="stat"><strong>48h</strong><span>para receber o saque</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <div class="section-head">
+          <h2>Da avaliação à conta financiada em três passos</h2>
+        </div>
+        <div class="steps">
+          <div class="step"><div class="step__num">01</div><h3>Escolha seu plano</h3><p>Selecione o tamanho de conta ideal para o seu perfil e receba o acesso à plataforma em minutos.</p></div>
+          <div class="step"><div class="step__num">02</div><h3>Passe na avaliação</h3><p>Atinja a meta de lucro respeitando as regras de risco. Sem prazo mínimo apertado.</p></div>
+          <div class="step"><div class="step__num">03</div><h3>Opere e saque</h3><p>Receba sua conta financiada, opere com o capital da Acelera e saque até 90% do lucro.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="planos" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>Planos de avaliação</h2>
+        </div>
+        <div class="plans">
+          <div class="plan">
+            <span class="plan__name">Start</span>
+            <div class="plan__price">R$ 197 <small>/ avaliação</small></div>
+            <ul><li>Até 5 contratos de mini-índice</li><li>Meta de lucro de R$ 1.500</li><li>Divisão de lucros de 80%</li></ul>
+            <a href="#" class="btn btn--ghost">Escolher Start</a>
+          </div>
+          <div class="plan plan--hot">
+            <span class="plan__name">Pro · mais escolhido</span>
+            <div class="plan__price">R$ 347 <small>/ avaliação</small></div>
+            <ul><li>Até 15 contratos de mini-índice</li><li>Meta de lucro de R$ 4.000</li><li>Divisão de lucros de 85%</li><li>Saque a partir do 1º ciclo</li></ul>
+            <a href="#" class="btn btn--primary">Escolher Pro</a>
+          </div>
+          <div class="plan">
+            <span class="plan__name">Elite</span>
+            <div class="plan__price">R$ 597 <small>/ avaliação</small></div>
+            <ul><li>Até 30 contratos de mini-índice</li><li>Meta de lucro de R$ 8.000</li><li>Divisão de lucros de 90%</li><li>Mentoria com a equipe de risco</li></ul>
+            <a href="#" class="btn btn--ghost">Escolher Elite</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-news" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>Últimas notícias</h2>
+          <a href="noticias.html" class="btn btn--ghost">Ver todas</a>
+        </div>
+        <div class="grid" id="latest"></div>
+      </div>
+    </section>
+
+    <div class="container">
+      <section class="newsletter">
+        <div>
+          <h2>Receba as principais notícias no seu e-mail</h2>
+          <p>Resumo semanal com análises de mercado, dicas de gestão de risco e novidades da mesa.</p>
+        </div>
+        <div>
+          <form data-newsletter>
+            <input type="email" placeholder="Seu melhor e-mail" required aria-label="E-mail">
+            <button class="btn btn--primary" type="submit">Inscrever</button>
+          </form>
+          <small>Você pode cancelar a inscrição a qualquer momento.</small>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/noticias-data.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("latest").innerHTML = sortedNews().slice(0, 3).map(cardHtml).join("");
+    });
+  </script>
+</body>
+</html>

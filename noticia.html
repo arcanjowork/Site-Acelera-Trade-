@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blog - Acelera Trade</title>
-  <meta name="description" content="Notícias e conteúdos da Acelera Trade.">
+  <title>Blog | Acelera Trade</title>
+  <meta name="description" content="Artigos sobre trade marketing pela Acelera Trade.">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="noticias">
   <div id="site-header"></div>
 
-  <main class="col-af">
+  <main class="section">
     <div class="wrap entry">
-      <div class="entry-info" id="post"></div>
+      <article id="post"></article>
 
       <aside class="entry-sidebar">
-        <div class="box-newsletter">
-          <h4 class="title-common">Assine nossa newsletter</h4>
-          <form class="form-af" data-newsletter>
-            <input type="text" placeholder="Digite seu nome" required aria-label="Nome">
-            <input type="email" placeholder="Digite seu e-mail" required aria-label="E-mail">
-            <input type="submit" class="btn" value="Cadastrar-se">
-            <small>Ao enviar o formulário, eu declaro que estou de acordo com a <a href="#">Política de Privacidade</a>.</small>
-          </form>
+        <div class="side-cta">
+          <div class="ico-big"><i data-icon="search"></i></div>
+          <h4>Tudo começa por um diagnóstico</h4>
+          <p>Entendemos onde a performance da sua operação está sendo perdida e priorizamos as oportunidades de maior impacto.</p>
+          <a data-whats class="btn">Agende um diagnóstico</a>
         </div>
+        <div class="side-list" id="outros"></div>
       </aside>
     </div>
   </main>
@@ -42,23 +40,27 @@
       const post = NOTICIAS.find(n => n.id === id);
       const el = document.getElementById("post");
 
+      const outros = sortedNews().filter(n => n !== post).slice(0, 4);
+      document.getElementById("outros").innerHTML = `<h5>Leia também</h5>` +
+        outros.map(n => `<a href="${postUrl(n)}">${escapeHtml(n.titulo)}</a>`).join("");
+
       if (!post) {
-        el.innerHTML = `<h1 class="title-common">Notícia não encontrada</h1>
+        el.innerHTML = `<h1>Artigo não encontrado</h1>
           <div class="entry-content"><p>O conteúdo que você procura pode ter sido removido ou o link está incorreto.</p></div>
           <a href="noticias.html" class="btn">Voltar para o blog</a>`;
         return;
       }
 
-      document.title = `${post.titulo} - Acelera Trade`;
+      document.title = `${post.titulo} | Acelera Trade`;
       document.querySelector('meta[name="description"]').setAttribute("content", post.resumo);
 
-      // Conteúdo: "## " vira subtítulo, "- " vira item de lista, "> " vira citação.
-      let body = "", list = [];
+      let body = "", list = [], fonte = "";
       const flush = () => { if (list.length) { body += `<ul>${list.join("")}</ul>`; list = []; } };
       post.conteudo.forEach(p => {
         if (p.startsWith("- ")) { list.push(`<li>${escapeHtml(p.slice(2))}</li>`); return; }
         flush();
-        if (p.startsWith("## ")) body += `<h3>${escapeHtml(p.slice(3))}</h3>`;
+        if (p.startsWith("Fonte")) fonte = p;
+        else if (p.startsWith("## ")) body += `<h2>${escapeHtml(p.slice(3))}</h2>`;
         else if (p.startsWith("> ")) body += `<blockquote>${escapeHtml(p.slice(2))}</blockquote>`;
         else body += `<p>${escapeHtml(p)}</p>`;
       });
@@ -68,17 +70,25 @@
       const text = encodeURIComponent(post.titulo);
 
       el.innerHTML = `
-        <div class="breadcrumb"><a href="index.html">Início</a> / <a href="noticias.html">Blog</a></div>
-        <h1 class="title-common">${escapeHtml(post.titulo)}</h1>
+        <div class="breadcrumb"><a href="index.html">Início</a> / <a href="noticias.html">Blog</a> / ${escapeHtml(post.categoria)}</div>
+        <span class="post-cat">${escapeHtml(post.categoria)}</span>
+        <h1>${escapeHtml(post.titulo)}</h1>
         <p class="entry-meta">${formatDate(post.data)} · ${escapeHtml(post.autor)}</p>
         <div class="entry-cover cover">${coverHtml(post)}</div>
         <div class="entry-content">${body}</div>
-        <div class="share">
-          <a href="https://twitter.com/intent/tweet?text=${text}&url=${url}" target="_blank" rel="noopener">${ICONS.twitter} Twitter</a>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=${url}" target="_blank" rel="noopener">${ICONS.facebook} Facebook</a>
-          <a href="https://wa.me/?text=${text}%20${url}" target="_blank" rel="noopener">${ICONS.whatsapp} WhatsApp</a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener">${ICONS.linkedin} LinkedIn</a>
+        ${fonte ? `<p class="entry-source">${escapeHtml(fonte)}</p>` : ""}
+        <div class="share">Compartilhar:
+          <a href="https://wa.me/?text=${text}%20${url}" target="_blank" rel="noopener" aria-label="WhatsApp">${WA_SVG}</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=${url}" target="_blank" rel="noopener" aria-label="LinkedIn">${icon("linkedin")}</a>
+          <a href="mailto:?subject=${text}&body=${url}" aria-label="E-mail">${icon("mail")}</a>
+          <a href="#" id="copy" aria-label="Copiar link">${icon("link")}</a>
         </div>`;
+
+      document.getElementById("copy").addEventListener("click", e => {
+        e.preventDefault();
+        navigator.clipboard?.writeText(location.href);
+        e.currentTarget.style.background = "var(--orange)";
+      });
     });
   </script>
 </body>

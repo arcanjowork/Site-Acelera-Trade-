@@ -1,39 +1,45 @@
 # Site Acelera Trade
 
-Site estático (HTML, CSS e JavaScript puro) da Acelera Trade, com página inicial e um portal de notícias.
+Site da **Acelera Trade, Consultoria de Performance em Trade Marketing**, feito em HTML, CSS e JavaScript puro (sem build).
+O conteúdo vem das propostas comerciais para indústrias e para agências; a estrutura do blog é inspirada em https://incubemetrics.com/noticias/.
 
 ## Páginas
 
-Layout baseado em https://incubemetrics.com/noticias/ (fundo branco, amarelo `#fec934`, cinza escuro `#2f2f2f`, fontes Barlow e Inter), com conteúdo e marca da Acelera Trade.
+- `index.html`: página principal (método, diagnóstico rápido, custo invisível, serviços, governança/agências, indicadores, fundador, próximo passo, blog e contato).
+  - O seletor **Sou indústria / Sou agência** troca os textos para cada público. Links diretos: `index.html?para=industrias` e `index.html?para=agencias`.
+  - O formulário de contato abre o WhatsApp com a mensagem já preenchida.
+- `noticias.html`: blog (1 artigo grande + 2 menores por página, paginação com `?pagina=2`).
+- `noticia.html?id=...`: artigo completo, compartilhamento e chamada para diagnóstico.
 
-- `index.html`: topo com abas de planos, mercados, "Nós somos", últimas notícias.
-- `noticias.html`: blog com 1 notícia grande + 2 menores por página e paginação (`?pagina=2`).
-- `noticia.html?id=...`: notícia completa, botões de compartilhar e newsletter na lateral.
-
-## Como publicar uma notícia
+## Como publicar um artigo
 
 Edite `js/noticias-data.js` e adicione um objeto à lista `NOTICIAS`:
 
 ```js
 {
-  id: "minha-noticia",           // vira a URL: noticia.html?id=minha-noticia
-  categoria: "Mercado",          // Acelera Trade, Mercado, Educação, Traders ou Eventos
-  titulo: "Título da notícia",
-  resumo: "Resumo exibido no card.",
-  autor: "Nome do autor",
-  data: "2026-10-08",            // AAAA-MM-DD
-  leitura: 4,                    // minutos de leitura
-  imagem: "img/minha-foto.jpg",  // opcional: foto de capa (sem ela, a capa é gerada automaticamente)
+  id: "meu-artigo",                // vira a URL: noticia.html?id=meu-artigo
+  categoria: "Execução no PDV",
+  titulo: "Título do artigo",
+  resumo: "Resumo usado na descrição da página.",
+  autor: "Equipe Acelera Trade",
+  data: "2026-10-10",              // AAAA-MM-DD (a lista é ordenada por data)
+  imagem: "img/minha-foto.jpg",
   conteudo: [
     "Parágrafo normal.",
     "## Subtítulo",
     "- Item de lista",
-    "> Citação em destaque"
+    "> Citação em destaque",
+    "Fontes: ..."                  // linha que começa com "Fonte" vai para o rodapé do artigo
   ]
 }
 ```
 
-As notícias aparecem da mais nova para a mais antiga. Sem `imagem`, a capa é gerada automaticamente.
+## Onde alterar
+
+- Telefone, WhatsApp, e-mail e Instagram: objeto `CONTATO` em `js/main.js`.
+- Menu de serviços e rodapé: `MENU_SERVICOS` e `NAV` em `js/main.js`.
+- Cores e fontes: variáveis no topo de `css/style.css`.
+- Fotos: pasta `img/` (vieram das apresentações comerciais).
 
 ## Rodar localmente
 
@@ -42,10 +48,3 @@ python3 -m http.server 8000
 ```
 
 Depois abra http://localhost:8000.
-
-## Para ajustar
-
-- E-mail, WhatsApp, redes sociais e link da área do trader: objeto `CONTATO` em `js/main.js`.
-- Itens do menu "Planos", das abas da home e do rodapé: lista `SERVICOS` em `js/main.js`.
-- Textos do topo da home: objeto `HERO` em `index.html`.
-- Cores: variáveis no topo de `css/style.css`.

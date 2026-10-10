@@ -39,7 +39,7 @@ Edite `js/noticias-data.js` e adicione um objeto à lista `NOTICIAS`:
 - Telefone, WhatsApp, e-mail e Instagram: objeto `CONTATO` em `js/main.js`.
 - Menu de serviços e rodapé: `MENU_SERVICOS` e `NAV` em `js/main.js`.
 - Cores e fontes: variáveis no topo de `css/style.css`.
-- Fotos: pasta `img/` (vieram das apresentações comerciais).
+- Fotos: pasta `img/` (Unsplash, uso comercial gratuito; lista em `img/CREDITOS.md`).
 
 ## Rodar localmente
 

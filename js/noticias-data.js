@@ -9,7 +9,7 @@ const NOTICIAS = [
     resumo: "Em julho de 2026, 10,8% dos itens estavam em falta nos supermercados. Entenda por que a ruptura é, quase sempre, um problema de execução.",
     autor: "Equipe Acelera Trade",
     data: "2026-10-06",
-    imagem: "img/gondola-ruptura.jpg",
+    imagem: "img/blog-ruptura.jpg",
     conteudo: [
       "Produto que não está na gôndola não vende. Parece óbvio, mas a ruptura continua sendo um dos maiores ralos de resultado da indústria: segundo o Índice de Ruptura da Neogrid, 10,8% dos itens estavam em falta nas gôndolas dos supermercados em julho de 2026.",
       "E o momento em que isso pesa é justamente o mais importante: 76% das decisões de compra no supermercado acontecem no ponto de venda. Se o shopper não encontra o produto, ele troca de marca, de tamanho ou simplesmente não compra.",
@@ -32,7 +32,7 @@ const NOTICIAS = [
     resumo: "Um onboarding bem estruturado aumenta em 82% a retenção de novos colaboradores. Veja como levar isso para a rotina do campo.",
     autor: "Equipe Acelera Trade",
     data: "2026-09-29",
-    imagem: "img/promotora-reposicao.jpg",
+    imagem: "img/blog-onboarding.jpg",
     conteudo: [
       "A rotatividade de promotores é um dos problemas mais caros do trade marketing. Substituir quem sai custa de 0,5 a 2 vezes o salário anual, e mais da metade dessas saídas poderia ter sido evitada.",
       "Enquanto isso, a loja é atendida por quem ainda não conhece o padrão da marca. O resultado aparece em ruptura, execução irregular e retrabalho.",
@@ -55,7 +55,7 @@ const NOTICIAS = [
     resumo: "70% da variação no engajamento de uma equipe vem do gestor direto. O que um supervisor preparado faz diferente no dia a dia.",
     autor: "Equipe Acelera Trade",
     data: "2026-09-22",
-    imagem: "img/lider-campo.jpg",
+    imagem: "img/blog-lideranca.jpg",
     conteudo: [
       "Segundo o Gallup, 70% da variação no engajamento de uma equipe vem do gestor direto. No trade marketing, esse gestor é o supervisor de campo, e muitas vezes ele foi promovido por ser um bom promotor, sem nunca ter sido preparado para liderar.",
       "Quando isso acontece, ninguém corrige a rota no dia a dia. A execução fica irregular entre lojas e regiões, e o problema chega ao cliente antes de chegar ao gestor.",
@@ -77,7 +77,7 @@ const NOTICIAS = [
     resumo: "Relatório com check-in e foto não prova execução. Como a indústria pode ter governança sobre a operação terceirizada.",
     autor: "Equipe Acelera Trade",
     data: "2026-09-15",
-    imagem: "img/auditoria-pdv.jpg",
+    imagem: "img/blog-auditoria.jpg",
     conteudo: [
       "Terceirizar a execução no PDV é uma decisão comum e muitas vezes acertada. O risco está em perder a visibilidade sobre o que realmente acontece na loja.",
       "Quando cada agência entrega um relatório diferente, focado em check-in e foto, a indústria enxerga atividade, não execução. E corre o risco de pagar por um serviço que não foi entregue.",
@@ -98,7 +98,7 @@ const NOTICIAS = [
     resumo: "Quando o cliente enxerga custo e não resultado, o contrato vira leilão. A metodologia de reports muda essa conversa.",
     autor: "Equipe Acelera Trade",
     data: "2026-09-08",
-    imagem: "img/supervisor-tablet.jpg",
+    imagem: "img/blog-reports.jpg",
     conteudo: [
       "Toda agência de trade marketing já viveu isso: a operação entrega, mas na renovação o cliente compara apenas o preço. O problema, na maioria das vezes, está no report.",
       "Relatórios que mostram só atividade (lojas visitadas, fotos, check-ins) fazem o cliente enxergar custo. Relatórios que mostram resultado fazem o cliente enxergar valor.",
@@ -119,7 +119,7 @@ const NOTICIAS = [
     resumo: "Roteiros mal dimensionados geram deslocamento demais e loja de menos. Como ganhar produtividade sem aumentar a equipe.",
     autor: "Equipe Acelera Trade",
     data: "2026-09-01",
-    imagem: "img/gestor-estoque.jpg",
+    imagem: "img/blog-roteirizacao.jpg",
     conteudo: [
       "Na operação de campo, tempo de deslocamento é tempo fora da gôndola. Roteiros montados sem critério fazem o promotor rodar mais e atender menos, e algumas lojas ficam sem visita na frequência certa.",
       "## Sinais de que o roteiro precisa de revisão",

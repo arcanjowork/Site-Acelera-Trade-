@@ -81,10 +81,9 @@ const MENU_SERVICOS = [
 ];
 
 const NAV = [
-  ["Quem somos", "index.html#quem-somos"],
+  ["Sobre", "index.html#quem-somos"],
   ["Serviços", null],
   ["Resultados", "index.html#resultados"],
-  ["Fundador", "index.html#fundador"],
   ["Blog", "noticias.html", "noticias"],
   ["Contato", "index.html#contato"]
 ];
@@ -121,6 +120,12 @@ function renderLayout() {
           </div>
           <button class="toggle-menu" id="toggle-menu" aria-label="Abrir menu">${icon("menu")}</button>
         </div>
+        <nav class="quicknav" aria-label="Atalhos">
+          <ul>
+            ${NAV.map(([label, h, key]) => `<li><a href="${h === null ? "index.html#pessoas" : h}" class="${key && key === page ? "active" : ""}">${label}</a></li>`).join("")}
+            <li><a href="${WHATS_URL()}" target="_blank" rel="noopener" class="cta">Agende um diagnóstico</a></li>
+          </ul>
+        </nav>
       </header>`;
 
     const nav = document.getElementById("nav");
@@ -159,7 +164,7 @@ function renderLayout() {
               <li><a href="index.html#quem-somos">Quem somos</a></li>
               <li><a href="index.html?para=industrias#publico">Para indústrias</a></li>
               <li><a href="index.html?para=agencias#publico">Para agências</a></li>
-              <li><a href="index.html#fundador">Sobre o fundador</a></li>
+              <li><a href="index.html#fundador">Fundador</a></li>
               <li><a href="noticias.html">Blog</a></li>
             </ul>
           </div>

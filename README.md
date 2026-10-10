@@ -4,9 +4,11 @@ Site estático (HTML, CSS e JavaScript puro) da Acelera Trade, com página inici
 
 ## Páginas
 
-- `index.html`: página inicial com hero, como funciona, planos, últimas notícias e newsletter.
-- `noticias.html`: lista de notícias com destaque, filtro por categoria, busca, paginação, mais lidas e newsletter.
-- `noticia.html?id=...`: página de cada notícia, com compartilhamento e "Leia também".
+Layout baseado em https://incubemetrics.com/noticias/ (fundo branco, amarelo `#fec934`, cinza escuro `#2f2f2f`, fontes Barlow e Inter), com conteúdo e marca da Acelera Trade.
+
+- `index.html`: topo com abas de planos, mercados, "Nós somos", últimas notícias.
+- `noticias.html`: blog com 1 notícia grande + 2 menores por página e paginação (`?pagina=2`).
+- `noticia.html?id=...`: notícia completa, botões de compartilhar e newsletter na lateral.
 
 ## Como publicar uma notícia
 
@@ -21,7 +23,7 @@ Edite `js/noticias-data.js` e adicione um objeto à lista `NOTICIAS`:
   autor: "Nome do autor",
   data: "2026-10-08",            // AAAA-MM-DD
   leitura: 4,                    // minutos de leitura
-  destaque: false,               // true para aparecer no destaque da página de notícias
+  imagem: "img/minha-foto.jpg",  // opcional: foto de capa (sem ela, a capa é gerada automaticamente)
   conteudo: [
     "Parágrafo normal.",
     "## Subtítulo",
@@ -31,7 +33,7 @@ Edite `js/noticias-data.js` e adicione um objeto à lista `NOTICIAS`:
 }
 ```
 
-As capas das notícias são geradas automaticamente (gráfico de candles com as cores da categoria).
+As notícias aparecem da mais nova para a mais antiga. Sem `imagem`, a capa é gerada automaticamente.
 
 ## Rodar localmente
 
@@ -43,6 +45,7 @@ Depois abra http://localhost:8000.
 
 ## Para ajustar
 
-- WhatsApp: constante `WHATSAPP` em `js/main.js`.
-- Menu, cotações do ticker e rodapé: `js/main.js`.
+- E-mail, WhatsApp, redes sociais e link da área do trader: objeto `CONTATO` em `js/main.js`.
+- Itens do menu "Planos", das abas da home e do rodapé: lista `SERVICOS` em `js/main.js`.
+- Textos do topo da home: objeto `HERO` em `index.html`.
 - Cores: variáveis no topo de `css/style.css`.

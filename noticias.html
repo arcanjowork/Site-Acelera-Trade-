@@ -3,73 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Notícias | Acelera Trade</title>
-  <meta name="description" content="Notícias, análises de mercado, conteúdos educacionais e novidades da Acelera Trade, mesa proprietária para traders.">
+  <title>Blog - Acelera Trade</title>
+  <meta name="description" content="Notícias, análises de mercado e conteúdos educacionais da Acelera Trade, mesa proprietária para traders.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Inter&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="noticias">
   <div id="site-header"></div>
 
-  <main>
-    <section class="page-hero">
-      <div class="container">
-        <span class="eyebrow">● Blog &amp; Notícias</span>
-        <h1>Fique por dentro do <em>mercado</em> e da Acelera Trade</h1>
-        <p>Análises, conteúdos educacionais, histórias de traders financiados e todas as novidades da nossa mesa proprietária.</p>
-      </div>
-    </section>
-
-    <div class="container">
-      <div id="featured"></div>
-
-      <div class="toolbar">
-        <div class="filters" id="filters"></div>
-        <label class="search">
-          <span id="search-icon"></span>
-          <input type="search" id="search" placeholder="Buscar notícias..." aria-label="Buscar notícias">
-        </label>
-      </div>
-
-      <div class="content">
-        <div>
-          <div class="grid" id="grid"></div>
-          <div class="pagination" id="pagination"></div>
-        </div>
-
-        <aside class="sidebar">
-          <div class="widget widget--cta">
-            <h3>Opere com o capital da Acelera Trade</h3>
-            <p>Passe na avaliação, comprove sua consistência e fique com até 90% do lucro.</p>
-            <a href="index.html#planos" class="btn btn--primary">Ver planos</a>
-          </div>
-          <div class="widget">
-            <h4>Mais lidas</h4>
-            <ol class="popular" id="popular"></ol>
-          </div>
-          <div class="widget">
-            <h4>Categorias</h4>
-            <ul class="cats" id="cats"></ul>
-          </div>
-        </aside>
-      </div>
-
-      <section class="newsletter">
-        <div>
-          <h2>Receba as principais notícias no seu e-mail</h2>
-          <p>Resumo semanal com análises de mercado, dicas de gestão de risco e novidades da mesa. Sem spam.</p>
-        </div>
-        <div>
-          <form data-newsletter>
-            <input type="email" placeholder="Seu melhor e-mail" required aria-label="E-mail">
-            <button class="btn btn--primary" type="submit">Inscrever</button>
-          </form>
-          <small>Você pode cancelar a inscrição a qualquer momento.</small>
-        </div>
-      </section>
+  <main class="col-af">
+    <div class="wrap">
+      <div class="noticias-list" id="lista"></div>
+      <div class="pages-number" id="paginas"></div>
     </div>
   </main>
 
@@ -79,108 +27,23 @@
   <script src="js/main.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      const PER_PAGE = 6;
-      const all = sortedNews();
-      const featured = all.find(n => n.destaque) || all[0];
-      const rest = all.filter(n => n !== featured);
-      const categories = ["Todas", ...new Set(NOTICIAS.map(n => n.categoria))];
-      const params = new URLSearchParams(location.search);
-      let state = { cat: categories.includes(params.get("categoria")) ? params.get("categoria") : "Todas", q: "", page: 1 };
+      const POR_PAGINA = 3;
+      const todas = sortedNews();
+      const total = Math.max(1, Math.ceil(todas.length / POR_PAGINA));
+      const pedida = parseInt(new URLSearchParams(location.search).get("pagina"), 10) || 1;
+      const pagina = Math.min(Math.max(1, pedida), total);
 
-      document.getElementById("search-icon").innerHTML = ICONS.search;
+      document.getElementById("lista").innerHTML =
+        noticiasBlockHtml(todas.slice((pagina - 1) * POR_PAGINA, pagina * POR_PAGINA));
 
-      document.getElementById("featured").innerHTML = `
-        <a class="featured" href="noticia.html?id=${encodeURIComponent(featured.id)}">
-          <div class="thumb">${coverSvg(featured)}<span class="thumb__tag">${escapeHtml(featured.categoria)}</span></div>
-          <div class="featured__body">
-            <span class="featured__label">★ Destaque</span>
-            <h2>${escapeHtml(featured.titulo)}</h2>
-            <p>${escapeHtml(featured.resumo)}</p>
-            <div class="meta">
-              <span class="author"><span class="avatar">${initials(featured.autor)}</span>${escapeHtml(featured.autor)}</span>
-              <span class="dot"></span><span>${formatDate(featured.data)}</span>
-              <span class="dot"></span><span>${featured.leitura} min de leitura</span>
-            </div>
-          </div>
-        </a>`;
-
-      // Sem um contador de acessos real, "Mais lidas" usa as mais recentes depois do destaque.
-      document.getElementById("popular").innerHTML = rest.slice(0, 5).map(n =>
-        `<li><div><a href="noticia.html?id=${encodeURIComponent(n.id)}">${escapeHtml(n.titulo)}</a><small>${formatDate(n.data)}</small></div></li>`
-      ).join("");
-
-      const catsEl = document.getElementById("cats");
-      catsEl.innerHTML = categories.slice(1).map(c =>
-        `<li data-cat="${escapeHtml(c)}">${escapeHtml(c)}<span>${NOTICIAS.filter(n => n.categoria === c).length}</span></li>`
-      ).join("");
-      catsEl.addEventListener("click", e => {
-        const li = e.target.closest("li");
-        if (!li) return;
-        setCat(li.dataset.cat);
-        document.getElementById("filters").scrollIntoView({ behavior: "smooth", block: "center" });
-      });
-
-      const filtersEl = document.getElementById("filters");
-      function renderFilters() {
-        filtersEl.innerHTML = categories.map(c =>
-          `<button class="chip ${c === state.cat ? "active" : ""}" data-cat="${escapeHtml(c)}">${escapeHtml(c)}</button>`
-        ).join("");
+      if (total > 1) {
+        let html = "";
+        for (let p = 1; p <= total; p++) {
+          const href = p === 1 ? "noticias.html" : `noticias.html?pagina=${p}`;
+          html += `<a class="page-numbers ${p === pagina ? "current" : ""}" href="${href}">${p}</a>`;
+        }
+        document.getElementById("paginas").innerHTML = html;
       }
-      filtersEl.addEventListener("click", e => {
-        const b = e.target.closest("button");
-        if (b) setCat(b.dataset.cat);
-      });
-
-      function setCat(cat) {
-        state.cat = cat;
-        state.page = 1;
-        const url = new URL(location.href);
-        cat === "Todas" ? url.searchParams.delete("categoria") : url.searchParams.set("categoria", cat);
-        history.replaceState(null, "", url);
-        renderFilters();
-        renderGrid();
-      }
-
-      const norm = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
-      document.getElementById("search").addEventListener("input", e => {
-        state.q = norm(e.target.value.trim());
-        state.page = 1;
-        renderGrid();
-      });
-
-      function renderGrid() {
-        // Com filtro ou busca ativos, o destaque também entra nos resultados.
-        const pool = state.cat === "Todas" && !state.q ? rest : all;
-        const list = pool.filter(n =>
-          (state.cat === "Todas" || n.categoria === state.cat) &&
-          (!state.q || norm(n.titulo + " " + n.resumo).includes(state.q))
-        );
-        const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
-        state.page = Math.min(state.page, pages);
-        const slice = list.slice((state.page - 1) * PER_PAGE, state.page * PER_PAGE);
-
-        document.getElementById("grid").innerHTML = slice.length
-          ? slice.map(cardHtml).join("")
-          : `<div class="empty">Nenhuma notícia encontrada. Tente outra busca ou categoria.</div>`;
-
-        const pag = document.getElementById("pagination");
-        if (pages <= 1) { pag.innerHTML = ""; return; }
-        let html = `<button data-p="${state.page - 1}" ${state.page === 1 ? "disabled" : ""} aria-label="Anterior">‹</button>`;
-        for (let p = 1; p <= pages; p++) html += `<button data-p="${p}" class="${p === state.page ? "active" : ""}">${p}</button>`;
-        html += `<button data-p="${state.page + 1}" ${state.page === pages ? "disabled" : ""} aria-label="Próxima">›</button>`;
-        pag.innerHTML = html;
-      }
-
-      document.getElementById("pagination").addEventListener("click", e => {
-        const b = e.target.closest("button");
-        if (!b || b.disabled) return;
-        state.page = Number(b.dataset.p);
-        renderGrid();
-        document.getElementById("filters").scrollIntoView({ behavior: "smooth", block: "start" });
-      });
-
-      renderFilters();
-      renderGrid();
     });
   </script>
 </body>

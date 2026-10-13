@@ -7,7 +7,7 @@
   <meta name="description" content="Consultoria de Performance em Trade Marketing para indústrias e agências. Diagnosticar, estruturar, desenvolver e sustentar a execução no PDV. Do BKO ao PDV.">
   <meta property="og:title" content="Acelera Trade | Consultoria de Performance em Trade Marketing">
   <meta property="og:description" content="Trade marketing eficiente, mensurável e orientado a resultado. Do BKO ao PDV.">
-  <meta property="og:image" content="img/hero-repositor.jpg">
+  <meta property="og:image" content="img/repositor-gondola.jpg">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,87 +18,113 @@
   <div id="site-header"></div>
 
   <main>
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero-content">
-        <div class="reveal">
-          <span class="pill"><i data-icon="zap"></i> Do BKO ao PDV</span>
-          <h1>Consultoria de performance em <em>trade marketing</em></h1>
-          <p class="lead">
-            <span data-aud="industria">Ajudamos indústrias a transformar o investimento em trade em execução no PDV, com método, do diagnóstico ao acompanhamento.</span>
-            <span data-aud="agencia">Ajudamos agências de trade marketing a entregar mais para os seus clientes, com padrão de execução e processos, do diagnóstico ao acompanhamento.</span>
-          </p>
+    <!-- HERO: muda conforme o serviço escolhido nas abas -->
+    <section class="hero2" id="servicos">
+      <div class="wrap hero2-content">
+        <div class="hero2-text">
+          <span class="tag-outline" id="hero-tag"></span>
+          <h1 id="hero-title"></h1>
+          <p class="lead" id="hero-text"></p>
           <div class="hero-actions">
-            <a data-whats class="btn">Agende um diagnóstico <i data-icon="arrow"></i></a>
-            <a href="#pessoas" class="btn btn--outline">Conheça os serviços</a>
+            <a class="btn" id="hero-cta" target="_blank" rel="noopener">Saiba como podemos ajudá-lo <i data-icon="arrow"></i></a>
+            <a class="link-arrow" id="hero-more">Ver detalhes do serviço <i data-icon="arrow"></i></a>
           </div>
-          <p class="hero-tagline">Diagnosticar · Estruturar · Desenvolver · Sustentar</p>
         </div>
-        <div class="hero-media reveal">
-          <img src="img/hero-repositor.jpg" alt="Promotora de camiseta organizando produtos na gôndola do supermercado" style="object-position:30% center">
-          <ul class="float-card float-card--steps">
-            <li><span>01</span> DIAGNOSTICAR</li>
-            <li><span>02</span> ESTRUTURAR</li>
-            <li><span>03</span> DESENVOLVER</li>
-            <li><span>04</span> SUSTENTAR</li>
-          </ul>
-          <div class="float-card float-card--stat">
-            <strong>76%</strong>
-            <span>das decisões de compra no supermercado acontecem no ponto de venda.</span>
-          </div>
+        <div class="hero2-art" aria-hidden="true">
+          <svg viewBox="0 0 520 440">
+            <!-- gôndolas -->
+            <g fill="none" stroke="#c5cad3" stroke-width="7">
+              <rect x="300" y="30" width="96" height="380" rx="3"/>
+              <rect x="408" y="30" width="96" height="380" rx="3"/>
+            </g>
+            <g stroke="#c5cad3" stroke-width="6">
+              <line x1="300" y1="125" x2="396" y2="125"/><line x1="300" y1="220" x2="396" y2="220"/><line x1="300" y1="315" x2="396" y2="315"/>
+              <line x1="408" y1="125" x2="504" y2="125"/><line x1="408" y1="220" x2="504" y2="220"/><line x1="408" y1="315" x2="504" y2="315"/>
+            </g>
+            <g fill="#a9b0bc">
+              <rect x="314" y="66" width="18" height="52" rx="4"/><rect x="339" y="66" width="18" height="52" rx="4"/><rect x="364" y="66" width="18" height="52" rx="4"/>
+              <rect x="422" y="56" width="20" height="62" rx="6"/><rect x="450" y="56" width="20" height="62" rx="6"/><rect x="478" y="56" width="14" height="62" rx="4"/>
+              <rect x="314" y="250" width="18" height="58" rx="4"/><rect x="339" y="250" width="18" height="58" rx="4"/><rect x="364" y="250" width="18" height="58" rx="4"/>
+              <rect x="422" y="148" width="20" height="65" rx="6"/><rect x="450" y="148" width="20" height="65" rx="6"/>
+              <rect x="314" y="340" width="20" height="62" rx="5"/><rect x="342" y="340" width="20" height="62" rx="5"/><rect x="370" y="340" width="20" height="62" rx="5"/>
+              <rect x="422" y="340" width="20" height="62" rx="5"/><rect x="450" y="340" width="20" height="62" rx="5"/><rect x="478" y="340" width="16" height="62" rx="5"/>
+            </g>
+            <g fill="#ee6a24"><rect x="478" y="148" width="16" height="65" rx="5"/><rect x="422" y="243" width="20" height="65" rx="6"/><rect x="450" y="243" width="20" height="65" rx="6"/><rect x="478" y="243" width="16" height="65" rx="5"/></g>
+            <!-- quadro com gráfico -->
+            <rect x="170" y="44" width="230" height="200" rx="8" fill="#fff" stroke="#dde1e7" stroke-width="2"/>
+            <line x1="196" y1="70" x2="196" y2="170" stroke="#1b2a4a" stroke-width="3"/>
+            <line x1="196" y1="170" x2="378" y2="170" stroke="#1b2a4a" stroke-width="3"/>
+            <g fill="#dde1e7"><rect x="212" y="130" width="12" height="40"/><rect x="234" y="112" width="12" height="58"/><rect x="256" y="120" width="12" height="50"/><rect x="278" y="96" width="12" height="74"/><rect x="300" y="104" width="12" height="66"/><rect x="322" y="84" width="12" height="86"/><rect x="344" y="74" width="12" height="96"/></g>
+            <polyline points="218,140 240,122 262,130 284,104 306,112 328,90 350,80" fill="none" stroke="#ee6a24" stroke-width="3" stroke-linejoin="round"/>
+            <rect x="196" y="192" width="22" height="7" rx="3" fill="#dde1e7"/><rect x="196" y="207" width="22" height="7" rx="3" fill="#ee6a24"/>
+            <line x1="228" y1="196" x2="300" y2="196" stroke="#1b2a4a" stroke-width="2"/><line x1="228" y1="211" x2="290" y2="211" stroke="#1b2a4a" stroke-width="2"/>
+            <circle cx="348" cy="206" r="24" fill="#dde1e7"/><path d="M348 206V182a24 24 0 0 1 22.8 16.6z" fill="#ee6a24"/>
+            <!-- selo do serviço -->
+            <circle cx="392" cy="50" r="30" fill="#1b2a4a"/>
+            <g id="hero-badge" transform="translate(377 35) scale(1.25)" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></g>
+            <!-- pessoa (promotor de polo) -->
+            <ellipse cx="128" cy="424" rx="78" ry="9" fill="#e9ecf1"/>
+            <path d="M104 262h24l-6 152h-22zM132 262h24l4 152h-22z" fill="#1b2a4a"/>
+            <path d="M92 424h32v-10H98zM136 424h34l-6-10h-28z" fill="#c5cad3"/>
+            <path d="M84 150c10-16 84-16 94 0l10 118H74z" fill="#1b2a4a"/>
+            <path d="M118 140h26l-13 20z" fill="#fff"/>
+            <path d="M131 140l-8 30h16z" fill="#ee6a24"/>
+            <path d="M176 160l58-40 9 12-60 44z" fill="#1b2a4a"/>
+            <circle cx="240" cy="124" r="9" fill="#e8b48f"/>
+            <line x1="244" y1="120" x2="270" y2="96" stroke="#1b2a4a" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M86 160l-26 74 14 6 30-66z" fill="#14213d"/>
+            <rect x="52" y="226" width="34" height="44" rx="4" fill="#fff" stroke="#c5cad3" stroke-width="2" transform="rotate(-12 69 248)"/>
+            <rect x="120" y="120" width="22" height="22" fill="#e8b48f"/>
+            <circle cx="131" cy="98" r="28" fill="#e8b48f"/>
+            <path d="M102 94c-2-28 54-34 58-6-12-6-28-5-36 3-8-4-16-1-22 3z" fill="#14213d"/>
+            <circle cx="122" cy="100" r="2.6" fill="#14213d"/><circle cx="141" cy="100" r="2.6" fill="#14213d"/>
+            <path d="M123 111q8 7 16 0" fill="none" stroke="#14213d" stroke-width="2.4" stroke-linecap="round"/>
+          </svg>
         </div>
       </div>
     </section>
 
-    <!-- PARA QUEM -->
-    <section class="audience" id="para-quem">
-      <div class="wrap audience-grid">
-        <button class="aud-card" data-set-aud="industrias">
-          <span class="aud-card__icon"><i data-icon="factory"></i></span>
-          <span>
-            <small>Para indústrias</small>
-            <h3>Eficiência no investimento em trade</h3>
-            <p>Governança sobre agências terceirizadas e execução comprovada loja a loja.</p>
-          </span>
-        </button>
-        <button class="aud-card" data-set-aud="agencias">
-          <span class="aud-card__icon"><i data-icon="building"></i></span>
-          <span>
-            <small>Para agências de trade marketing</small>
-            <h3>Margem, SLA e contrato renovado</h3>
-            <p>Sua operação pronta para qualquer auditoria do cliente e com diferencial comercial.</p>
-          </span>
-        </button>
-      </div>
-    </section>
+    <!-- ABAS DE SERVIÇOS -->
+    <nav class="service-tabs" aria-label="Serviços">
+      <ul class="wrap" id="tabs" role="tablist"></ul>
+    </nav>
 
-    <!-- QUEM SOMOS + MÉTODO -->
-    <section class="section" id="quem-somos">
-      <div class="wrap about">
-        <div class="about-media reveal">
-          <img src="img/repositor-gondola.jpg" alt="Promotora repondo produtos na gôndola">
-          <div class="badge"><span><strong>17+</strong>anos de trade</span></div>
+    <!-- CLIENTES -->
+    <section class="clients" id="clientes">
+      <div class="wrap clients-content">
+        <div class="clients-intro">
+          <h2>Clientes</h2>
+          <p>Marcas onde atuamos e operações que já atendemos. Conhecemos o que a indústria cobra e o que o campo precisa para entregar.</p>
         </div>
-        <div class="reveal">
-          <span class="eyebrow">Quem somos</span>
-          <h2 class="title">Trade marketing eficiente, mensurável <em>e orientado a resultado.</em></h2>
-          <p class="lead">
-            <span data-aud="industria">Equipe, promotores, sistemas e investimento não bastam se a execução não chega à loja. Nós organizamos o caminho entre o escritório e a gôndola.</span>
-            <span data-aud="agencia">Quem contrata agência quer entrega comprovada. Nós organizamos sua operação para mostrar resultado antes que o cliente pergunte.</span>
-          </p>
-
-          <span class="eyebrow" style="margin-top:44px">Nosso método</span>
-          <div class="method">
-            <div class="method-step"><div class="method-step__icon"><i data-icon="search"></i></div><h4><span>01</span> Diagnosticar</h4><p>Onde a performance está sendo perdida.</p></div>
-            <div class="method-step"><div class="method-step__icon"><i data-icon="network"></i></div><h4><span>02</span> Estruturar</h4><p>Processos, papéis, formulários e rotas.</p></div>
-            <div class="method-step"><div class="method-step__icon"><i data-icon="cap"></i></div><h4><span>03</span> Desenvolver</h4><p>Pessoas, do promotor ao gerente.</p></div>
-            <div class="method-step"><div class="method-step__icon"><i data-icon="chart"></i></div><h4><span>04</span> Sustentar</h4><p>Indicadores, rituais e planos de ação.</p></div>
-          </div>
-          <div class="banner"><i data-icon="zap"></i> Criamos do zero ou reorganizamos o que já existe</div>
+        <div class="clients-carousel">
+          <div class="clients-track" id="clients-track"></div>
+          <button class="carousel-btn carousel-btn--prev" id="clients-prev" aria-label="Clientes anteriores"><i data-icon="chevronLeft"></i></button>
+          <button class="carousel-btn" id="clients-next" aria-label="Próximos clientes"><i data-icon="chevronRight"></i></button>
         </div>
       </div>
     </section>
 
+    <!-- NÓS SOMOS -->
+    <section class="somos2" id="quem-somos">
+      <div class="somos2-text">
+        <h2>Nós somos</h2>
+        <div class="somos2-slide active">
+          <p>Uma consultoria de performance em trade marketing que ajuda indústrias e agências a transformar o investimento em trade em execução no PDV, com método, do diagnóstico ao acompanhamento.</p>
+          <p>Equipe, promotores, sistemas e investimento não bastam se a execução não chega à loja. Nós organizamos o caminho entre o escritório e a gôndola.</p>
+        </div>
+        <div class="somos2-slide">
+          <p><strong>Nosso método:</strong> Diagnosticar onde a performance está sendo perdida, estruturar processos, papéis, formulários e rotas, desenvolver pessoas do promotor ao gerente e sustentar com indicadores, rituais e planos de ação.</p>
+          <p>Criamos do zero ou reorganizamos o que já existe.</p>
+        </div>
+        <div class="somos2-slide">
+          <p>Conhecemos trade marketing de dentro para fora: nosso fundador começou como promotor e chegou à gestão nacional de Trade Marketing, com mais de 17 anos em indústrias, agências e varejo.</p>
+          <p>Sabemos o que a indústria cobra e o que a agência precisa para entregar.</p>
+        </div>
+        <div class="somos2-dots" id="somos-dots"><button class="active" aria-label="Quem somos">01</button><button aria-label="Nosso método">02</button><button aria-label="Por que a Acelera Trade">03</button></div>
+        <div class="somos2-badge" aria-hidden="true"><i data-icon="zap"></i></div>
+      </div>
+      <div class="somos2-media"><img src="img/repositor-gondola.jpg" alt="Promotora de camiseta repondo produtos na gôndola"></div>
+    </section>
     <!-- ONDE O JOGO É DECIDIDO -->
     <section class="section section--light">
       <div class="wrap decided">
@@ -330,10 +356,7 @@
           <span class="eyebrow">Por que Acelera Trade?</span>
           <h2 class="title">Conhecemos trade marketing <em>de dentro para fora.</em></h2>
           <p class="lead"><strong>Thiago Archanjo, fundador:</strong> 17+ anos em indústrias, agências e varejo. Começou como promotor e chegou à gestão nacional de Trade Marketing. Sabe o que a indústria cobra e o que a agência precisa para entregar.</p>
-                    <p class="chips-title">Empresas onde atuou</p>
-          <div class="chips chips--orange"><span>NESTLÉ</span><span>COLGATE-PALMOLIVE</span><span>CARGILL</span><span>J.MACÊDO</span><span>WORK ON</span></div>
-          <p class="chips-title">Operações e clientes atendidos</p>
-          <div class="chips"><span>KRAFT HEINZ</span><span>CAMIL ALIMENTOS</span><span>MONDELEZ</span><span>FERRERO</span><span>FINI</span><span>DURACELL</span><span>LEÃO</span><span>LOJAS AMERICANAS</span><span>BAUDUCCO</span><span>PHILIP MORRIS INTL.</span><span>AURORA COOP</span><span>GROUPE SEB</span><span>SAMSUNG</span></div>
+          <a href="#clientes" class="link-arrow">Veja os clientes e marcas que já atendemos <i data-icon="arrow"></i></a>
         </div>
       </div>
     </section>
@@ -415,10 +438,84 @@
       setAudience(new URLSearchParams(location.search).get("para") === "agencias" ? "agencias" : "industrias", false);
       document.querySelectorAll("[data-set-aud]").forEach(b => b.addEventListener("click", () => {
         setAudience(b.dataset.setAud, true);
-        if (b.classList.contains("aud-card")) document.getElementById("quem-somos").scrollIntoView({ behavior: "smooth" });
       }));
 
       document.getElementById("ultimas").innerHTML = noticiasBlockHtml(sortedNews().slice(0, 3));
+
+      // Topo: cada aba mostra um serviço (mesmo padrão do site de referência)
+      const SERVICOS_HERO = [
+        { id: "onboarding", icon: "rocket", aba: "Onboarding Visionário", tag: "Onboarding Visionário", ancora: "#pessoas",
+          titulo: "Promotor que chega à loja sabendo o padrão, a marca e o porquê do trabalho!",
+          texto: "Integração pensada para a realidade do PDV: menos saídas nos primeiros meses e produtividade mais cedo." },
+        { id: "merchandising", icon: "cap", aba: "Acelera Merchandising", tag: "Acelera Merchandising", ancora: "#pessoas",
+          titulo: "Execução no padrão em todas as lojas, com técnica e propósito!",
+          texto: "Treinamento de promotores com visão e propósito: técnica de merchandising, execução e relação com a loja." },
+        { id: "lideranca", icon: "crown", aba: "Liderança de campo", tag: "Liderança de campo", ancora: "#pessoas",
+          titulo: "Supervisores que corrigem a rota antes de virar perda de venda!",
+          texto: "Rotina de gestão, feedback e correção de rota para supervisores, coordenadores e gerentes." },
+        { id: "processos", icon: "clipboard", aba: "Coleta, BKO e reports", tag: "Processos e dados", ancora: "#processos",
+          titulo: "Dado confiável do PDV ao escritório, para decidir com segurança!",
+          texto: "Formulários de Loja Perfeita, estruturação de BKO, relatórios de alta performance, metodologia de reports e roteirização." },
+        { id: "auditoria", icon: "shield", aba: "Auditoria e governança", tag: "Auditoria e governança", ancora: "#publico",
+          titulo: "Saiba se a execução que você paga está acontecendo, loja a loja!",
+          texto: "Auditoria de agências e de execução no PDV, padrão de reports e rituais de performance." }
+      ];
+      const tabs = document.getElementById("tabs");
+      tabs.innerHTML = SERVICOS_HERO.map(s =>
+        `<li><button role="tab" data-id="${s.id}">${icon(s.icon)}<span>${s.aba}</span></button></li>`).join("");
+      let atual = 0, heroTimer;
+      function showService(i, manual) {
+        atual = i;
+        const s = SERVICOS_HERO[i];
+        document.getElementById("hero-tag").textContent = s.tag;
+        document.getElementById("hero-title").textContent = s.titulo;
+        document.getElementById("hero-text").textContent = s.texto;
+        document.getElementById("hero-cta").href = WHATS_URL(`Olá! Quero saber mais sobre ${s.aba} da Acelera Trade.`);
+        document.getElementById("hero-more").href = s.ancora;
+        document.getElementById("hero-badge").innerHTML = PATHS[s.icon];
+        tabs.querySelectorAll("button").forEach((b, j) => { b.classList.toggle("active", j === i); b.setAttribute("aria-selected", j === i); });
+        const txt = document.querySelector(".hero2-text");
+        txt.classList.remove("swap"); void txt.offsetWidth; txt.classList.add("swap");
+        clearInterval(heroTimer);
+        if (!manual) heroTimer = setInterval(() => showService((atual + 1) % SERVICOS_HERO.length), 7000);
+      }
+      tabs.addEventListener("click", e => {
+        const b = e.target.closest("button");
+        if (b) showService(SERVICOS_HERO.findIndex(s => s.id === b.dataset.id), true);
+      });
+      const pedido = SERVICOS_HERO.findIndex(s => s.id === new URLSearchParams(location.search).get("servico"));
+      showService(pedido >= 0 ? pedido : 0, pedido >= 0);
+
+      // Clientes: carrossel de marcas
+      const CLIENTES = ["Nestlé", "Colgate-Palmolive", "Cargill", "J.Macêdo", "Work On", "Kraft Heinz", "Camil",
+        "Mondelez", "Ferrero", "Fini", "Duracell", "Leão", "Americanas", "Bauducco", "Philip Morris", "Aurora Coop", "Groupe SEB", "Samsung"];
+      const track = document.getElementById("clients-track");
+      track.innerHTML = CLIENTES.map(c => `<div class="client"><span>${c}</span></div>`).join("");
+      const step = () => track.querySelector(".client").offsetWidth + 24;
+      const go = dir => {
+        const max = track.scrollWidth - track.clientWidth - 4;
+        if (dir > 0 && track.scrollLeft >= max) track.scrollTo({ left: 0, behavior: "smooth" });
+        else track.scrollBy({ left: dir * step(), behavior: "smooth" });
+      };
+      document.getElementById("clients-next").addEventListener("click", () => go(1));
+      document.getElementById("clients-prev").addEventListener("click", () => go(-1));
+      let auto = setInterval(() => go(1), 3500);
+      track.addEventListener("pointerenter", () => clearInterval(auto));
+      track.addEventListener("pointerleave", () => { clearInterval(auto); auto = setInterval(() => go(1), 3500); });
+
+      // Nós somos: 01 / 02 / 03
+      const slides = document.querySelectorAll(".somos2-slide");
+      const dots = document.querySelectorAll("#somos-dots button");
+      let slide = 0, slideTimer;
+      function goSlide(i) {
+        slide = i;
+        slides.forEach((s, j) => s.classList.toggle("active", j === i));
+        dots.forEach((d, j) => d.classList.toggle("active", j === i));
+        clearInterval(slideTimer);
+        slideTimer = setInterval(() => goSlide((slide + 1) % slides.length), 8000);
+      }
+      dots.forEach((d, i) => d.addEventListener("click", () => goSlide(i)));
+      goSlide(0);
 
       // Formulário: monta a mensagem e abre o WhatsApp
       const form = document.getElementById("form-contato");

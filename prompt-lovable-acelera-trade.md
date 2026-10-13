@@ -68,37 +68,42 @@ Círculo verde `#25D366` de 60px no canto inferior direito, com o ícone do What
 
 ### Página inicial (`/`)
 
-#### 1. Hero (`Hero.tsx`)
-Duas colunas (texto 1,05fr | foto 0,95fr). Fundo em degradê branco → `#F3F5F8`, com um brilho laranja radial bem suave no canto superior direito.
-- Pílula marinho com raio laranja: **DO BKO AO PDV**
-- H1 (Montserrat 800, caixa alta, `clamp(34px,4.6vw,58px)`): **CONSULTORIA DE PERFORMANCE EM** e, na linha de baixo, em laranja, **TRADE MARKETING**
-- Parágrafo:
-  - [I] "Ajudamos indústrias a transformar o investimento em trade em execução no PDV, com método, do diagnóstico ao acompanhamento."
-  - [A] "Ajudamos agências de trade marketing a entregar mais para os seus clientes, com padrão de execução e processos, do diagnóstico ao acompanhamento."
-- Botões: **AGENDE UM DIAGNÓSTICO →** (WhatsApp) e **CONHEÇA OS SERVIÇOS** (contorno, vai para `#pessoas`)
-- Linha laranja em caixa alta: **DIAGNOSTICAR · ESTRUTURAR · DESENVOLVER · SUSTENTAR**
-- Foto `hero-promotora.jpg` (promotora de camiseta na gôndola), 580px de altura, cantos de 24px, `object-position: 30% center`. Por cima da foto, dois cards brancos flutuantes:
-  - Canto superior direito: lista numerada com bolinhas laranja: 01 DIAGNOSTICAR · 02 ESTRUTURAR · 03 DESENVOLVER · 04 SUSTENTAR
-  - Canto inferior esquerdo, saindo um pouco da foto: **76%** (grande, laranja) e o texto "das decisões de compra no supermercado acontecem no ponto de venda."
+#### 1. Hero por serviço (`Hero.tsx`, id `servicos`)
+**Referência de estilo:** o topo da incubemetrics.com. O hero já apresenta um serviço e muda conforme a aba escolhida logo abaixo. Use a estrutura e o ritmo da referência, com texto, cores e marca da Acelera Trade.
+- Fundo branco com hexágonos grandes de contorno bem sutil (marinho, 5% de opacidade) em SVG.
+- Duas colunas (texto 1,1fr | ilustração 0,9fr).
+- Texto, que troca com uma animação suave (fade + subir 12px) ao mudar de serviço:
+  - Etiqueta com contorno marinho de 1,5px, cantos de 4px, Montserrat 700 12px caixa alta: nome do serviço
+  - H1 Montserrat 800, `clamp(32px,4vw,52px)`, marinho, sem caixa alta
+  - Parágrafo de apoio
+  - Botão laranja **SAIBA COMO PODEMOS AJUDÁ-LO →** (abre o WhatsApp com "Olá! Quero saber mais sobre {serviço} da Acelera Trade.") e o link laranja **Ver detalhes do serviço →**, que leva para a seção do serviço
+- Ilustração vetorial em SVG, estilo flat, nas cores da marca: um promotor de **camisa polo azul-marinho** (sem avental) apontando para um quadro com gráfico de barras cinza e linha laranja em alta, legenda e um gráfico de pizza; atrás, duas gôndolas com produtos cinza e alguns laranja. No canto do quadro, um selo circular marinho com o ícone do serviço ativo, em branco.
+- 5 serviços, que trocam sozinhos a cada 7s até o visitante clicar em uma aba (aceite também `?servico=<id>` na URL):
 
-#### 2. Para quem (`AudienceCards.tsx`)
-Dois cards grandes que sobem 60px sobre o fim do hero (fundo branco, sombra). O card ativo ganha borda laranja e ícone em círculo laranja. Ao clicar, o card troca o público e rola até "Quem somos".
-- Ícone Factory · rótulo **PARA INDÚSTRIAS** · título **Eficiência no investimento em trade** · texto "Governança sobre agências terceirizadas e execução comprovada loja a loja."
-- Ícone Building2 · rótulo **PARA AGÊNCIAS DE TRADE MARKETING** · título **Margem, SLA e contrato renovado** · texto "Sua operação pronta para qualquer auditoria do cliente e com diferencial comercial."
+| id | Aba / etiqueta | Título | Texto | Link "Ver detalhes" |
+|---|---|---|---|---|
+| onboarding | Onboarding Visionário (Rocket) | Promotor que chega à loja sabendo o padrão, a marca e o porquê do trabalho! | Integração pensada para a realidade do PDV: menos saídas nos primeiros meses e produtividade mais cedo. | #pessoas |
+| merchandising | Acelera Merchandising (GraduationCap) | Execução no padrão em todas as lojas, com técnica e propósito! | Treinamento de promotores com visão e propósito: técnica de merchandising, execução e relação com a loja. | #pessoas |
+| lideranca | Liderança de campo (Crown) | Supervisores que corrigem a rota antes de virar perda de venda! | Rotina de gestão, feedback e correção de rota para supervisores, coordenadores e gerentes. | #pessoas |
+| processos | Coleta, BKO e reports (ClipboardCheck); etiqueta "Processos e dados" | Dado confiável do PDV ao escritório, para decidir com segurança! | Formulários de Loja Perfeita, estruturação de BKO, relatórios de alta performance, metodologia de reports e roteirização. | #processos |
+| auditoria | Auditoria e governança (ShieldCheck) | Saiba se a execução que você paga está acontecendo, loja a loja! | Auditoria de agências e de execução no PDV, padrão de reports e rituais de performance. | #publico |
 
-#### 3. Quem somos + método (`About.tsx`, id `quem-somos`)
-Duas colunas: foto à esquerda e texto à direita.
-- Foto `quem-somos-promotora.jpg` (600px de altura) com um selo circular laranja sobreposto no canto inferior direito: **17+** / "ANOS DE TRADE" `[CONFIRMAR: o perfil do fundador fala em 8+ anos; a apresentação fala em 17+]`
-- Eyebrow **QUEM SOMOS** · título **TRADE MARKETING EFICIENTE, MENSURÁVEL** / **E ORIENTADO A RESULTADO.**
-- Texto:
-  - [I] "Equipe, promotores, sistemas e investimento não bastam se a execução não chega à loja. Nós organizamos o caminho entre o escritório e a gôndola."
-  - [A] "Quem contrata agência quer entrega comprovada. Nós organizamos sua operação para mostrar resultado antes que o cliente pergunte."
-- Eyebrow **NOSSO MÉTODO** e 4 passos em linha (2 colunas no celular), cada um com ícone em círculo marinho e linha tracejada ligando os passos:
-  - Search · **01 DIAGNOSTICAR** · "Onde a performance está sendo perdida."
-  - Network · **02 ESTRUTURAR** · "Processos, papéis, formulários e rotas."
-  - GraduationCap · **03 DESENVOLVER** · "Pessoas, do promotor ao gerente."
-  - ChartLine · **04 SUSTENTAR** · "Indicadores, rituais e planos de ação."
-- Faixa marinho com raio laranja: **CRIAMOS DO ZERO OU REORGANIZAMOS O QUE JÁ EXISTE**
+#### 2. Abas de serviços (`ServiceTabs.tsx`)
+Faixa branca com bordas finas em cima e embaixo, dividida em 5 colunas separadas por linhas verticais. Cada aba tem um ícone de 30px e o nome em Montserrat 700 14,5px. A aba ativa sobe 14px sobre o hero, ganha borda marinho de 2px (sem a borda de baixo, cantos superiores de 10px) e ícone laranja; as outras ficam em cinza e escurecem no hover. Use `role="tablist"` e `aria-selected`. No tablet, 3 colunas; no celular, as abas viram um carrossel horizontal com rolagem.
+
+#### 3. Clientes (`Clients.tsx`, id `clientes`)
+Duas colunas: à esquerda (300px, com divisor vertical), o título **Clientes** (Montserrat 800, 40px) e o texto "Marcas onde atuamos e operações que já atendemos. Conhecemos o que a indústria cobra e o que o campo precisa para entregar."; à direita, um **carrossel de logos** (4 por vez no desktop, 3 no tablet, 2 no celular) com setas redondas ‹ ›, que anda sozinho a cada 3,5s e pausa no hover.
+- Marcas: Nestlé (nestle.com), Colgate-Palmolive (colgatepalmolive.com), Cargill (cargill.com), J.Macêdo (jmacedo.com.br), Work On (sem domínio), Kraft Heinz (kraftheinzcompany.com), Camil (camilalimentos.com.br), Mondelez (mondelezinternational.com), Ferrero (ferrero.com), Fini (fini.com.br), Duracell (duracell.com), Leão (leaoalimentosebebidas.com.br), Americanas (americanas.com.br), Bauducco (bauducco.com.br), Philip Morris (pmi.com), Aurora Coop (auroracoop.com.br), Groupe SEB (groupeseb.com), Samsung (samsung.com) `[CONFIRMAR lista e se pode exibir as marcas]`
+- Cada logo fica num card cinza-claro `#F3F5F8` de 110px de altura, em cinza (`grayscale opacity-60`) e colorido no hover. Logos via Brandfetch CDN: `https://cdn.brandfetch.io/{dominio}/w/400/h/120/logo?c=${import.meta.env.VITE_BRANDFETCH_CLIENT_ID}&fallback=lettermark`; se a imagem falhar, mostre o nome em Montserrat 800 cinza.
+
+#### 3b. Nós somos (`AboutSplit.tsx`, id `quem-somos`)
+Bloco de largura total em duas metades: à esquerda, fundo **laranja `#EE6A24`** com texto marinho; à direita, a foto `quem-somos-promotora.jpg` cobrindo toda a altura (mínimo de 640px). Na divisa das duas metades, um hexágono branco com o raio laranja da marca.
+- Título **Nós somos** (Montserrat 800, até 46px).
+- 3 slides que trocam a cada 8s, com navegação **01 · 02 · 03** no rodapé do bloco (o ativo fica sublinhado):
+  - 01: "Uma consultoria de performance em trade marketing que ajuda indústrias e agências a transformar o investimento em trade em execução no PDV, com método, do diagnóstico ao acompanhamento." / "Equipe, promotores, sistemas e investimento não bastam se a execução não chega à loja. Nós organizamos o caminho entre o escritório e a gôndola."
+  - 02: "**Nosso método:** Diagnosticar onde a performance está sendo perdida, estruturar processos, papéis, formulários e rotas, desenvolver pessoas do promotor ao gerente e sustentar com indicadores, rituais e planos de ação." / "Criamos do zero ou reorganizamos o que já existe."
+  - 03: "Conhecemos trade marketing de dentro para fora: nosso fundador começou como promotor e chegou à gestão nacional de Trade Marketing, com mais de 17 anos em indústrias, agências e varejo." `[CONFIRMAR anos]` / "Sabemos o que a indústria cobra e o que a agência precisa para entregar."
+- No celular, o texto vem em cima e a foto embaixo (380px), sem o hexágono.
 
 #### 4. Onde o jogo é decidido (`Decided.tsx`, fundo `#F3F5F8`)
 Texto à esquerda, foto `shopper-gondola.jpg` à direita (560px de altura).
@@ -187,9 +192,7 @@ Duas colunas (0,8fr | 1,2fr).
 - Direita: eyebrow **POR QUE ACELERA TRADE?** · título **CONHECEMOS TRADE MARKETING** / **DE DENTRO PARA FORA.**
 - Texto: "**Thiago Archanjo, fundador:** 17+ anos em indústrias, agências e varejo. Começou como promotor e chegou à gestão nacional de Trade Marketing. Sabe o que a indústria cobra e o que a agência precisa para entregar." `[CONFIRMAR grafia: Archanjo ou Arcanjo; e anos de experiência: 17+ ou 8+]`
 - Trilha em caixa alta com setas laranja: PROMOTOR › SUPERVISÃO › COORDENAÇÃO › GESTÃO › ESTRATÉGIA
-- **Mural de logos** com o título-rótulo "EMPRESAS ONDE ATUOU": Nestlé (nestle.com), Colgate-Palmolive (colgatepalmolive.com), Cargill (cargill.com), J. Macêdo (jmacedo.com.br), Work On (sem domínio: mostrar o nome em texto)
-- Segundo mural, "OPERAÇÕES E CLIENTES ATENDIDOS": Kraft Heinz (kraftheinzcompany.com), Camil (camilalimentos.com.br), Mondelez (mondelezinternational.com), Ferrero (ferrero.com), Fini (fini.com.br), Duracell (duracell.com), Leão (leaoalimentosebebidas.com.br), Lojas Americanas (americanas.com.br), Bauducco (bauducco.com.br), Philip Morris International (pmi.com), Aurora Coop (auroracoop.com.br), Groupe SEB (groupeseb.com), Samsung (samsung.com) `[CONFIRMAR lista e se pode exibir as marcas]`
-- Logos via Brandfetch CDN: `https://cdn.brandfetch.io/{dominio}/w/400/h/120/logo?c=${import.meta.env.VITE_BRANDFETCH_CLIENT_ID}&fallback=lettermark`, em cinza (`grayscale opacity-70`) que fica colorido no hover, dentro de cards brancos com borda. Se a imagem falhar (`onError`), troque pelo nome da empresa em texto (Montserrat 700, 12px, caixa alta, marinho).
+- Link laranja "Veja os clientes e marcas que já atendemos →" para `#clientes`.
 
 #### 12. Próximo passo (`NextStep.tsx`, id `proximo-passo`, fundo `#F3F5F8`)
 Texto à esquerda, foto `imersao-campo.jpg` à direita (600px).
@@ -239,7 +242,7 @@ Fundo `#14213D`, texto branco 70%. Quatro colunas:
 
 - `title`: "Acelera Trade | Consultoria de Performance em Trade Marketing"
 - `description`: "Consultoria de Performance em Trade Marketing para indústrias e agências. Diagnosticar, estruturar, desenvolver e sustentar a execução no PDV. Do BKO ao PDV."
-- Open Graph com `hero-promotora.jpg`. Em cada artigo, `title` = "{título} | Acelera Trade" e `description` = resumo.
+- Open Graph com `quem-somos-promotora.jpg`. Em cada artigo, `title` = "{título} | Acelera Trade" e `description` = resumo.
 - Favicon: raio laranja (lucide Zap) sobre um quadrado marinho com cantos de 7px, em SVG.
 - Contraste AA, foco visível (anel laranja de 2px), `alt` descritivo em todas as fotos, `aria-label` nos botões de ícone, navegação por teclado no mega menu e na gaveta, `lang="pt-BR"`.
 - Mobile-first, sem rolagem horizontal. Valide a 375px: hero empilhado (texto e depois a foto), cards e tabelas empilhados, método em 2 colunas, rodapé em 1 coluna.
@@ -412,7 +415,6 @@ Coloque estas imagens em `public/images/`. Elas estão no arquivo `lovable-image
 
 | Arquivo | Onde aparece |
 |---|---|
-| `hero-promotora.jpg` | Hero (promotora de camiseta na gôndola) |
 | `quem-somos-promotora.jpg` | Quem somos (promotora repondo produtos) |
 | `shopper-gondola.jpg` | Onde o jogo é decidido (consumidora com cesta) |
 | `gondola-vazia.jpg` | Fundo do "Custo invisível" |
@@ -431,7 +433,7 @@ Também configure:
 
 1. **Anos de experiência do fundador:** a apresentação diz 17+; o perfil anterior dizia 8+. Use um número só no site inteiro (selo do "Quem somos" e seção do fundador).
 2. **Grafia do nome:** Thiago **Archanjo** (como está na apresentação) ou **Arcanjo**.
-3. **Lista de empresas e clientes** do mural de logos, e se pode exibir as marcas.
+3. **Lista de clientes** do carrossel de logos, e se pode exibir as marcas.
 4. **Dado de 57%** (promotores sem onboarding): só incluir com a fonte confirmada.
 5. **E-mail de contato:** manter contato.vecgroup@gmail.com ou criar um com domínio próprio (ex.: contato@aceleratrade.com.br).
 6. **Artigos do blog:** são um ponto de partida, assinados como "Equipe Acelera Trade". Revisar antes de publicar.

@@ -85,6 +85,7 @@ const MENU_SERVICOS = [
 const NAV = [
   ["Sobre", "index.html#quem-somos"],
   ["Serviços", null],
+  ["Clientes", "index.html#clientes"],
   ["Resultados", "index.html#resultados"],
   ["Blog", "noticias.html", "noticias"],
   ["Contato", "index.html#contato"]
@@ -164,6 +165,7 @@ function renderLayout() {
             <h5>Navegação</h5>
             <ul>
               <li><a href="index.html#quem-somos">Quem somos</a></li>
+              <li><a href="index.html#clientes">Clientes atendidos</a></li>
               <li><a href="index.html?para=industrias#publico">Para indústrias</a></li>
               <li><a href="index.html?para=agencias#publico">Para agências</a></li>
               <li><a href="index.html#fundador">Fundador</a></li>

@@ -49,7 +49,7 @@ O site atende dois públicos: **indústrias** (que investem em trade e contratam
 
 - Fixo no topo (`sticky`), fundo branco 97% com `backdrop-blur`, altura 84px. Ganha borda inferior e sombra leve ao rolar.
 - Fundo com **hexágonos de contorno bem sutis** (traço marinho com 7% de opacidade) só no lado direito, sem repetir. Faça em SVG inline.
-- Menu: **Sobre · Serviços ▾ · Resultados · Blog · Contato**, em Montserrat 500 15,5px marinho. No hover ou no item ativo, o texto fica laranja com um sublinhado laranja de 2px.
+- Menu: **Sobre · Serviços ▾ · Clientes · Resultados · Blog · Contato**, em Montserrat 500 15,5px marinho. No hover ou no item ativo, o texto fica laranja com um sublinhado laranja de 2px.
 - Direita: botão redondo do Instagram (contorno) + botão laranja **"AGENDE UM DIAGNÓSTICO"** (abre o WhatsApp).
 - **Mega menu "Serviços"** (abre no hover em desktop e no clique em mobile): painel branco de largura total, em 3 colunas, cada uma com título-rótulo laranja e itens com ícone laranja:
   - **PESSOAS**: Onboarding Visionário (Rocket) · Acelera Merchandising (GraduationCap) · Liderança de campo (Crown). Todos levam para `#pessoas`.
@@ -58,7 +58,7 @@ O site atende dois públicos: **indústrias** (que investem em trade e contratam
 - Responsivo:
   - Abaixo de 1180px some o botão do Instagram. Abaixo de 1040px some o botão laranja, e o menu continua visível.
   - **Abaixo de 860px**: o menu vira um botão "☰" que abre uma gaveta lateral à direita (cabeçalho marinho com "Menu" e botão fechar, itens empilhados, "Serviços" expansível, botões "Agende um diagnóstico" e "@aceleratrade" no fim, com fundo escurecido atrás).
-  - No celular, logo abaixo da logo, mostre uma **barra de atalhos sempre visível**, rolável na horizontal, com pílulas cinza-claro: Sobre · Serviços · Resultados · Blog · Contato e uma pílula laranja "Agende um diagnóstico".
+  - No celular, logo abaixo da logo, mostre uma **barra de atalhos sempre visível**, rolável na horizontal, com pílulas cinza-claro: Sobre · Serviços · Clientes · Resultados · Blog · Contato e uma pílula laranja "Agende um diagnóstico".
 
 ### Botão flutuante de WhatsApp
 
@@ -222,7 +222,7 @@ Fundo marinho com brilho laranja radial no canto inferior esquerdo. Duas colunas
 Fundo `#14213D`, texto branco 70%. Quatro colunas:
 - Logo negativo · "Consultoria de Performance em Trade Marketing para indústrias e agências. Do BKO ao PDV." · em laranja, caixa alta: "DIAGNOSTICAR. ESTRUTURAR. / DESENVOLVER. SUSTENTAR."
 - **SERVIÇOS**: Onboarding Visionário · Acelera Merchandising · Liderança de campo · Formulários de coleta · Estruturação de BKO · Relatórios de alta performance
-- **NAVEGAÇÃO**: Quem somos · Para indústrias · Para agências · Fundador · Blog
+- **NAVEGAÇÃO**: Quem somos · Clientes atendidos · Para indústrias · Para agências · Fundador · Blog
 - **FALE CONOSCO**: telefone, e-mail e Instagram, com ícones laranja
 - Linha inferior: "© {ano} Acelera Trade. Todos os direitos reservados." · "Do BKO ao PDV."
 
